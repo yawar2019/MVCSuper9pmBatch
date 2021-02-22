@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "SendToDiffObject";
+    var employee = ViewBag.info.emp;
+}
+
+<h2>SendToDiffObject</h2>
+
+@employee.EmpId<br />
+@employee.EmpName<br />
+@employee.EmpSalary<br /><br />
+<h2>Department Details</h2><br />
+
+@ViewBag.info.dept.DeptId<br />
+@ViewBag.info.dept.DeptName<br />

@@ -1,0 +1,12 @@
+﻿@model MVCSuper9pmBatch.Models.Employee
+@{
+    ViewBag.Title = "SendSingleObject";
+
+
+}
+
+<h2>SendSingleObject</h2>
+
+@Html.Partial("_myPartialView", Model)<br />
+
+@{Html.RenderPartial("_myPartialView", Model);}
