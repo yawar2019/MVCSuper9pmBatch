@@ -78,5 +78,14 @@ namespace AdonetExample.Controllers
                 return View();
             }
         }
+
+        public ActionResult HtmlHelperExample() {
+            EmployeeModel obj = new EmployeeModel();
+            obj.EmpName = "Rahul";
+            ViewBag.Empdetail = new SelectList(db.GetEmployeeList(), "EmpId", "EmpName");
+
+            return View(obj);
+        }
+
     }
 }

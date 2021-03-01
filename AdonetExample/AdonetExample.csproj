@@ -135,6 +135,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EmployeeDetailController.cs" />
+    <Compile Include="CustomHelpers\myhtmlhelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -158,6 +159,7 @@
     <Content Include="Views\EmployeeDetail\Create.cshtml" />
     <Content Include="Views\EmployeeDetail\Edit.cshtml" />
     <Content Include="Views\EmployeeDetail\Delete.cshtml" />
+    <Content Include="Views\EmployeeDetail\HtmlHelperExample.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

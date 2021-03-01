@@ -1,0 +1,42 @@
+﻿@using AdonetExample.CustomHelpers;
+@model AdonetExample.Models.EmployeeModel
+@{
+    ViewBag.Title = "HtmlHelperExample";
+}
+<script>
+    function fun(a) {
+
+        alert("hello Rahul");
+    }
+</script>
+<h2>HtmlHelperExample</h2>
+
+@Html.TextBox("UserName","aakash",new {@style="background-color:skyblue;color:black",@class="form-control",@id="txtUserName",@type="time"})<br />
+@Html.TextBoxFor(s => s.EmpName, new { @style = "background-color:skyblue;color:black", @class = "form-control", @id = "txtUserName" })<br )
+<br />
+@Html.EditorFor(x=>x.EmpId)
+<br />
+
+<br />
+@Html.EditorForModel(@Model)
+
+@Html.Password("Pwd","1213")<br />
+<span>java</span>@Html.CheckBox("java",true)
+<span>Dotnet</span>@Html.CheckBox("Dotnet", true)<br />
+@Html.DisplayFor(x => x.EmpName)<br />
+@Html.DropDownList("Country", new List<SelectListItem> {
+    new SelectListItem {Text="Select Country",Disabled=true },
+    new SelectListItem {Text="India",Value="1" },
+    new SelectListItem {Text="japan",Value="2",Selected=true },
+    new SelectListItem {Text="srilanka",Value="3" },
+
+
+},new {@onchange="fun(@Model.EmpName)" })
+<br />
+@Html.DropDownList("Empdetail")<br />
+@Html.DropDownList("EmpRecord", (IEnumerable<SelectListItem>) ViewBag.Empdetail)<br />
+
+@myhtmlhelper.MyLabel("I agree to Condition")
+@Html.createUrControl("text")<br />
+@Html.createUrControl("checkbox")<br />
+@Html.createUrControl("radio")<br />
