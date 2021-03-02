@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCSuper9pmBatch", "MVCSupe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdonetExample", "AdonetExample\AdonetExample.csproj", "{93A04601-3BC6-4E7E-BA33-2222A9EA875C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseFirstApproach", "DatabaseFirstApproach\DatabaseFirstApproach.csproj", "{D2332D11-00C8-4070-9C6F-403ABAF3035B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{93A04601-3BC6-4E7E-BA33-2222A9EA875C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93A04601-3BC6-4E7E-BA33-2222A9EA875C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93A04601-3BC6-4E7E-BA33-2222A9EA875C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2332D11-00C8-4070-9C6F-403ABAF3035B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2332D11-00C8-4070-9C6F-403ABAF3035B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2332D11-00C8-4070-9C6F-403ABAF3035B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2332D11-00C8-4070-9C6F-403ABAF3035B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
