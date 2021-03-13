@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D801F128-D1AF-414F-96B7-0A44D0D5E5F8}</ProjectGuid>
+    <ProjectGuid>{6813E3D2-C283-4062-BE83-01DB22D02ADB}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeFirstApproach</RootNamespace>
-    <AssemblyName>CodeFirstApproach</AssemblyName>
+    <RootNamespace>ModelBasedApproach</RootNamespace>
+    <AssemblyName>ModelBasedApproach</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -84,6 +84,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -130,6 +132,17 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Models\ModelBasedApproach.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelBasedApproach.Context.cs</LastGenOutput>
+      <DependentUpon>ModelBasedApproach.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ModelBasedApproach.edmx.sql" />
+    <Content Include="Models\ModelBasedApproach.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelBasedApproach.cs</LastGenOutput>
+      <DependentUpon>ModelBasedApproach.edmx</DependentUpon>
+    </Content>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -147,25 +160,31 @@
     <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Default\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\EmployeeModelsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103051627326_InitialCreate.cs" />
-    <Compile Include="Migrations\202103051627326_InitialCreate.Designer.cs">
-      <DependentUpon>202103051627326_InitialCreate.cs</DependentUpon>
+    <Compile Include="Models\EmployeeModel.cs">
+      <DependentUpon>ModelBasedApproach.tt</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202103061559477_secondChanges.cs" />
-    <Compile Include="Migrations\202103061559477_secondChanges.Designer.cs">
-      <DependentUpon>202103061559477_secondChanges.cs</DependentUpon>
+    <Compile Include="Models\ModelBasedApproach.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBasedApproach.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\EmployeeContext.cs" />
-    <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\ModelBasedApproach.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBasedApproach.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelBasedApproach.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBasedApproach.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -174,12 +193,21 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EntityDeploy Include="Models\ModelBasedApproach.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelBasedApproach.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelBasedApproach.edmx.diagram">
+      <DependentUpon>ModelBasedApproach.edmx</DependentUpon>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\EmployeeModels\Create.cshtml" />
+    <Content Include="Views\EmployeeModels\Delete.cshtml" />
+    <Content Include="Views\EmployeeModels\Details.cshtml" />
+    <Content Include="Views\EmployeeModels\Edit.cshtml" />
+    <Content Include="Views\EmployeeModels\Index.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Default\Edit.cshtml" />
-    <Content Include="Views\Default\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -191,12 +219,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103051627326_InitialCreate.resx">
-      <DependentUpon>202103051627326_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103061559477_secondChanges.resx">
-      <DependentUpon>202103061559477_secondChanges.cs</DependentUpon>
-    </EmbeddedResource>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -211,9 +234,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51960</DevelopmentServerPort>
+          <DevelopmentServerPort>55914</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51960/</IISUrl>
+          <IISUrl>http://localhost:55914/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

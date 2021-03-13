@@ -18,7 +18,8 @@ namespace AdonetExample.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create() {
+        public ActionResult Create()
+        {
             return View();
         }
 
@@ -26,21 +27,22 @@ namespace AdonetExample.Controllers
         public ActionResult Create(EmployeeModel emp)
         {
             int i = db.SaveEmployee(emp);
-            if (i > 0) {
+            if (i > 0)
+            {
                 return RedirectToAction("Index");
             }
             else
             {
                 return View();
             }
-             
+
         }
 
         [HttpGet]
-        public ActionResult Edit(int ? id)
+        public ActionResult Edit(int? id)
         {
-          EmployeeModel emp = db.getEmployeeById(id);
-          return View(emp);
+            EmployeeModel emp = db.getEmployeeById(id);
+            return View(emp);
         }
 
         [HttpPost]
@@ -79,7 +81,8 @@ namespace AdonetExample.Controllers
             }
         }
 
-        public ActionResult HtmlHelperExample() {
+        public ActionResult HtmlHelperExample()
+        {
             EmployeeModel obj = new EmployeeModel();
             obj.EmpName = "Rahul";
             ViewBag.Empdetail = new SelectList(db.GetEmployeeList(), "EmpId", "EmpName");
@@ -87,5 +90,22 @@ namespace AdonetExample.Controllers
             return View(obj);
         }
 
+        public ActionResult ValidationExample()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ValidationExample(RegisterModel reg)
+        {
+            if (ModelState.IsValid)
+            {
+                return Redirect("~/EmployeeDetail/ValidationExample");
+            }
+            else
+            {
+                return View(reg);
+
+            }
+        }
     }
 }
