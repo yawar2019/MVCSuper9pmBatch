@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseFirstApproach", "DatabaseFirstApproach\DatabaseFirstApproach.csproj", "{D2332D11-00C8-4070-9C6F-403ABAF3035B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirstApproach", "CodeFirstApproach\CodeFirstApproach.csproj", "{D801F128-D1AF-414F-96B7-0A44D0D5E5F8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{93A04601-3BC6-4E7E-BA33-2222A9EA875C} = {93A04601-3BC6-4E7E-BA33-2222A9EA875C}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelBasedApproach", "ModelBasedApproach\ModelBasedApproach.csproj", "{6813E3D2-C283-4062-BE83-01DB22D02ADB}"
 EndProject

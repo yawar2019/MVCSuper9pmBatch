@@ -89,5 +89,18 @@ namespace CodeFirstApproach.Controllers
             }
         }
 
+
+        public ActionResult getReadWebService()
+        {
+            ServiceReference1.WebService1SoapClient obj = new ServiceReference1.WebService1SoapClient();
+            obj.Add(100, 200,100);
+            return Content(obj.Add(100, 200,100).ToString());
+        }
+        public ActionResult testwcf()
+        {
+            ServiceReference2.Service2Client obj = new ServiceReference2.Service2Client();
+            
+            return Content(obj.HelloGost().ToString());
+        }
     }
 }
